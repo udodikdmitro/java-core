@@ -1,6 +1,6 @@
 package interfaces;
 
-public class Frige extends Electronics{
+public class Fridge extends Electronics{
     @Override
     public int calcDeliveryPrice(){
         if (getPrice()>=300){
@@ -10,7 +10,7 @@ public class Frige extends Electronics{
         }
     }
 
-    public Frige(String make, String model, int quantity, int price) {
+    public Fridge(String make, String model, int quantity, int price) {
         super(make, model, quantity, price);
     }
 

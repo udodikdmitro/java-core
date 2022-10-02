@@ -2,7 +2,7 @@ package interfaces;
 
 import com.javalesson.oop.Size;
 
-public class Pizza implements Deliverable,Orderable {
+public class Pizza implements Pricable {
     private String name;
     private int quantity;
     private int price;
