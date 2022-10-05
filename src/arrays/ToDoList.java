@@ -1,20 +1,13 @@
 package arrays;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 public class ToDoList {
-    private int a;
-    private int b;
 
-    private List<String> toDoList = new ArrayList<>();
+    private LinkedList<String> toDoList = new LinkedList<>();
 
     public void addToList (String task) {
-//        toDoList.add(task);
         addInAlphabeticalOrder(task);
-        this.a = 5;
     }
 
     private boolean addInAlphabeticalOrder(String task) {
@@ -39,9 +32,6 @@ public class ToDoList {
     }
 
     public void printToDoList () {
-//        for (int i = 0; i < toDoList.size(); i++) {
-//            System.out.println(i + " - " + toDoList.get(i));
-//        }
         Iterator<String> iterator = toDoList.iterator();
         while (iterator.hasNext()) {
             System.out.println("Element " + iterator.next());
