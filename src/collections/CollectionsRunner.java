@@ -98,7 +98,7 @@ public class CollectionsRunner {
             } else if (faces.indexOf(card1.getFace()) == faces.indexOf(card2.getFace())) {
                 return String.valueOf(card1.suit).compareTo(String.valueOf(card2.getSuit()));
             }
-            return 0;
+            return String.valueOf(card1.getSuit()).compareTo(String.valueOf(card2.getSuit()));
         }
     }
 }
