@@ -15,22 +15,22 @@ public class CollectionsRunner {
 
         System.out.println("Origin dec of cards:");
 
-        for (int i = 0; i < decOfCards.size(); i++) {
-            System.out.printf("%-20s %s", decOfCards.get(i), (i + 1) % 4 == 0 ? "\n" : "  ");
-        }
+        printOutput(decOfCards);
 
         Collections.shuffle(decOfCards);
 
         System.out.println("\n\nDec of cards after shuffle:");
 
-        for (int i = 0; i < decOfCards.size(); i++) {
-            System.out.printf("%-20s %s", decOfCards.get(i), (i + 1) % 4 == 0 ? "\n" : "  ");
-        }
+        printOutput(decOfCards);
 
         Collections.sort(decOfCards, new CardComparator());
 
         System.out.println("\n\nDec of cards after sort:");
 
+        printOutput(decOfCards);
+    }
+
+    private static void printOutput(List<Card> decOfCards) {
         for (int i = 0; i < decOfCards.size(); i++) {
             System.out.printf("%-20s %s", decOfCards.get(i), (i + 1) % 4 == 0 ? "\n" : "  ");
         }

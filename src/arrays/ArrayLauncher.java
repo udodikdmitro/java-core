@@ -1,6 +1,6 @@
 package arrays;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class ArrayLauncher {
     public  static Scanner scanner = new Scanner(System.in);
