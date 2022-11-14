@@ -1,11 +1,30 @@
 package collections;
 
+import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.Stack;
 
 public class StackQueueLauncher {
 
     public static void main(String[] args) {
-        passengerProcessing();
+//        passengerProcessing();
+
+        Queue<Card> cardDeck = new PriorityQueue<>(52, new CardComparator());
+        for (Card.Face face: Card.Face.values()){
+            for(Card.Suit suit: Card.Suit.values()) {
+                cardDeck.offer(new Card(suit, face));
+            }
+        }
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(cardDeck.poll());
+        }
+
+        System.out.println("Deck size is: " + cardDeck.size());
+        System.out.println(cardDeck.peek());
+        cardDeck.clear();;
+        System.out.println("Deck size after clear is: " + cardDeck.size());
+
     }
 
     public static void passengerProcessing() {
