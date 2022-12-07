@@ -1,8 +1,6 @@
 package collections;
 
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class StackQueueLauncher {
 
@@ -16,6 +14,7 @@ public class StackQueueLauncher {
             }
         }
 
+        Deque<Card> cards = new ArrayDeque<>();
         for (int i = 0; i < 10; i++) {
             System.out.println(cardDeck.poll());
         }

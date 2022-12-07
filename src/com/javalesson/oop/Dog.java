@@ -6,7 +6,7 @@ public class Dog {
     public static final int TAIL = 1;
     private String name;
     private String breed;
-    private Size size=Size.UNDEFINED;
+    private Size size = Size.UNDEFINED;
     private static int dogCount;
 
     public Dog() {
