@@ -31,7 +31,8 @@ public class Car implements Comparable<Car>{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return pricePerDay == car.pricePerDay && Objects.equals(carBrand, car.carBrand) && Objects.equals(model, car.model);
+        return pricePerDay == car.pricePerDay && Objects.equals(carBrand, car.carBrand)
+                && Objects.equals(model, car.model);
     }
 
     @Override
@@ -42,11 +43,11 @@ public class Car implements Comparable<Car>{
     @Override
     public int compareTo(Car car) {
 
-        if (pricePerDay < getPricePerDay()) {
+        if (pricePerDay < car.getPricePerDay()) {
             return -1;
         }
 
-        if (pricePerDay > getPricePerDay()) {
+        if (pricePerDay > car.getPricePerDay()) {
             return 1;
         }
         return 0;

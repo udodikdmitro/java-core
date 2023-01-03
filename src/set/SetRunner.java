@@ -8,12 +8,12 @@ public class SetRunner {
 
     public static void main(String[] args) {
 
-        String[] cars = {"Mini", "Mercedes-Benz", "Audi", "VW", "Smart", "Toyota", "Porsche"};
-        String[] otherCars = {"Audi", "Ford", "GMC", "Toyota", "Chevrolet"};
+//        String[] cars = {"Mini", "Mercedes-Benz", "Audi", "VW", "Smart", "Toyota", "Porsche"};
+//        String[] otherCars = {"Audi", "Ford", "GMC", "Toyota", "Chevrolet"};
 
-        Set<String> carSet = new TreeSet<>(Arrays.asList(cars));
-        Set<String> otherCarSet = new TreeSet<>(Arrays.asList(otherCars));
-        Set<String> uniqueCars = new TreeSet<>(carSet);
+//        Set<String> carSet = new TreeSet<>(Arrays.asList(cars));
+//        Set<String> otherCarSet = new TreeSet<>(Arrays.asList(otherCars));
+//        Set<String> uniqueCars = new TreeSet<>(carSet);
 
         Set<Car> sixCars = new HashSet<>();
         sixCars.add(new Car("VW","Golf",45));
@@ -29,7 +29,7 @@ public class SetRunner {
         europaCars.add(new Car("VW","Golf",45));
         europaCars.add(new Car("VW","Polo",35));
 
-        uniqueCars.addAll(otherCarSet);
+//        uniqueCars.addAll(otherCarSet);
 
         NavigableSet<Car> uniqueCar = new TreeSet<>(sixCars);
         uniqueCar.addAll(europaCars);
@@ -39,14 +39,14 @@ public class SetRunner {
 
         print(uniqueCar);
 
-        System.out.println("Higher");
-        System.out.println(uniqueCar.higher(new Car("Toyota", "Auris", 40)));
-
-        System.out.println("Lower");
-        System.out.println(uniqueCar.lower(new Car("Toyota", "Auris", 40)));
-
-        System.out.println("Floor");
-        System.out.println(uniqueCar.floor(new Car("Toyota", "Auris", 40)));
+//        System.out.println("Higher");
+//        System.out.println(uniqueCar.higher(new Car("Toyota", "Auris", 40)));
+//
+//        System.out.println("Lower");
+//        System.out.println(uniqueCar.lower(new Car("Toyota", "Auris", 40)));
+//
+//        System.out.println("Floor");
+//        System.out.println(uniqueCar.floor(new Car("Toyota", "Auris", 40)));
 
     }
 
