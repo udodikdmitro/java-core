@@ -1,0 +1,33 @@
+------------------------------------
+Student: Alex Average grade: 78.13043
+Subject: History Grade: 75
+Subject: Mathematics Grade: 89
+Subject: Literature Grade: 88
+Subject: Mathematics Grade: 93
+Subject: Mathematics Grade: 90
+Subject: History Grade: 82
+Subject: Literature Grade: 90
+Subject: History Grade: 78
+Subject: Chemistry Grade: 89
+Subject: Physics Grade: 80
+Subject: Mathematics Grade: 73
+Subject: Physics Grade: 91
+Subject: Literature Grade: 66
+Subject: History Grade: 55
+Subject: Chemistry Grade: 50
+Subject: Literature Grade: 70
+Subject: Mathematics Grade: 75
+Subject: Chemistry Grade: 80
+Subject: Physics Grade: 70
+Subject: Physics Grade: 65
+Subject: History Grade: 95
+Subject: Chemistry Grade: 75
+Subject: Literature Grade: 78
+------------------------------------
+Student: Alina Average grade: NaN
+------------------------------------
+Student: Antony Average grade: NaN
+------------------------------------
+Student: James Average grade: NaN
+------------------------------------
+Student: Victoria Average grade: NaN
