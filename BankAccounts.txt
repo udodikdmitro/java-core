@@ -1,3 +1,0 @@
-1, Alex, Wasko, 6454,500000
-2, Dima, Udodik, 6316,009766
-3, Sima, Smith, 416541,468750

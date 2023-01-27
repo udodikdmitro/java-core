@@ -10,48 +10,35 @@ import java.util.*;
 public class IOMain {
 
     public static final String FILE_NAME = "GradeBook.txt";
+    public static final String BINARY_FILE = "Students.bin";
 
     public static void main(String[] args) throws IOException {
-        NavigableMap<AverageStudentGrade, Set<SubjectGrade>> grades = TreeMapRunner.createGrades();
-//        writeFile(grades);
-//        writeFile();
-
-        Formatter formatter = new Formatter("BankAccounts.txt");
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Please enter clientId, clientName, clientSurname, clientBalance:");
-        int i = 0;
-        while (i < 3){
-            try{
-                formatter.format("%d, %s, %s, %f%n",
-                        scanner.nextInt(), scanner.next(), scanner.next(), scanner.nextFloat());
-                i++;
-            } catch (InputMismatchException e){
-                System.out.println("Input is incorrect. Please try again");
-                scanner.nextLine();
-            }
-        }
-        formatter.close();
+        SortedMap<AverageStudentGrade, Set<SubjectGrade>> grades = TreeMapRunner.createGrades();
+        Reader reader = new Reader();
+        Writter writter = new Writter();
+        writter.writeFile(grades, FILE_NAME);
+//        reader.readFile(FILE_NAME);
+//        writter.writeWithFormatter();
+        processGrades(grades, writter, BINARY_FILE);
+        outputObject(reader, BINARY_FILE);
     }
 
-    private static void writeFile() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME));
-        String c;
-        while ((c = reader.readLine()) != null){
-            System.out.println(c);
+    private static void processGrades(SortedMap<AverageStudentGrade, Set<SubjectGrade>> grades,
+                                      Writter writter, String fileName){
+        List<Student> students = new ArrayList<>();
+        for(AverageStudentGrade gradeKey: grades.keySet()){
+            students.add(new Student(gradeKey.getName(), gradeKey.getAverageGrade(), grades.get(gradeKey)));
+        }
+        writter.writeObject(students, fileName);
+    }
+
+    private static void outputObject(Reader reader, String fileName){
+        List<Student> students = reader.readObject(fileName);
+
+        for (Student student: students){
+            System.out.printf("%s, %.2f %n", student.getName(), student.getAverageGrade());
+            System.out.println(student.getGrades());
         }
     }
 
-    private static void writeFile(NavigableMap<AverageStudentGrade, Set<SubjectGrade>> grades) throws IOException {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_NAME))){
-            for (AverageStudentGrade gradeKey : grades.keySet()) {
-                writer.write("------------------------------------\n");
-                writer.write("Student: " + gradeKey.getName() + " Average grade: " +
-                        gradeKey.getAverageGrade() + "\n");
-                for (SubjectGrade grade : grades.get(gradeKey)) {
-                    writer.write("Subject: " + grade.getSubject() + " Grade: " + grade.getGrade() + "\n");
-                }
-            }
-        }
-    }
 }
