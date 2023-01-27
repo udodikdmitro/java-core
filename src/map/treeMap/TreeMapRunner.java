@@ -38,32 +38,32 @@ public class TreeMapRunner {
         alexGrades.add(new SubjectGrade("Chemistry", 75));
 
         Set<SubjectGrade> jamesGrades = new HashSet<>();
-        alexGrades.add(new SubjectGrade("Mathematics", 75));
-        alexGrades.add(new SubjectGrade("Physics", 80));
-        alexGrades.add(new SubjectGrade("History", 55));
-        alexGrades.add(new SubjectGrade("Literature", 70));
-        alexGrades.add(new SubjectGrade("Chemistry", 80));
+        jamesGrades.add(new SubjectGrade("Mathematics", 75));
+        jamesGrades.add(new SubjectGrade("Physics", 80));
+        jamesGrades.add(new SubjectGrade("History", 55));
+        jamesGrades.add(new SubjectGrade("Literature", 70));
+        jamesGrades.add(new SubjectGrade("Chemistry", 80));
 
         Set<SubjectGrade> antonyGrades = new HashSet<>();
-        alexGrades.add(new SubjectGrade("Mathematics", 93));
-        alexGrades.add(new SubjectGrade("Physics", 91));
-        alexGrades.add(new SubjectGrade("History", 82));
-        alexGrades.add(new SubjectGrade("Literature", 78));
-        alexGrades.add(new SubjectGrade("Chemistry", 80));
+        antonyGrades.add(new SubjectGrade("Mathematics", 93));
+        antonyGrades.add(new SubjectGrade("Physics", 91));
+        antonyGrades.add(new SubjectGrade("History", 82));
+        antonyGrades.add(new SubjectGrade("Literature", 78));
+        antonyGrades.add(new SubjectGrade("Chemistry", 80));
 
         Set<SubjectGrade> victoriaGrades = new HashSet<>();
-        alexGrades.add(new SubjectGrade("Mathematics", 73));
-        alexGrades.add(new SubjectGrade("Physics", 65));
-        alexGrades.add(new SubjectGrade("History", 75));
-        alexGrades.add(new SubjectGrade("Literature", 66));
-        alexGrades.add(new SubjectGrade("Chemistry", 50));
+        victoriaGrades.add(new SubjectGrade("Mathematics", 73));
+        victoriaGrades.add(new SubjectGrade("Physics", 65));
+        victoriaGrades.add(new SubjectGrade("History", 75));
+        victoriaGrades.add(new SubjectGrade("Literature", 66));
+        victoriaGrades.add(new SubjectGrade("Chemistry", 50));
 
         Set<SubjectGrade> alinaGrades = new HashSet<>();
-        alexGrades.add(new SubjectGrade("Mathematics", 90));
-        alexGrades.add(new SubjectGrade("Physics", 70));
-        alexGrades.add(new SubjectGrade("History", 78));
-        alexGrades.add(new SubjectGrade("Literature", 88));
-        alexGrades.add(new SubjectGrade("Chemistry", 89));
+        alinaGrades.add(new SubjectGrade("Mathematics", 90));
+        alinaGrades.add(new SubjectGrade("Physics", 70));
+        alinaGrades.add(new SubjectGrade("History", 78));
+        alinaGrades.add(new SubjectGrade("Literature", 88));
+        alinaGrades.add(new SubjectGrade("Chemistry", 89));
 
         NavigableMap<AverageStudentGrade, Set<SubjectGrade>> map = new TreeMap<>();
         map.put(new AverageStudentGrade("Alex", calcAverage(alexGrades)),alexGrades);
