@@ -11,6 +11,7 @@ public class IOMain {
 
     public static final String FILE_NAME = "GradeBook.txt";
     public static final String BINARY_FILE = "Students.bin";
+    public static final String BUFFERED_FILE = "Buffered.txt";
 
     public static void main(String[] args) throws IOException {
         SortedMap<AverageStudentGrade, Set<SubjectGrade>> grades = TreeMapRunner.createGrades();
@@ -19,8 +20,33 @@ public class IOMain {
         writter.writeFile(grades, FILE_NAME);
 //        reader.readFile(FILE_NAME);
 //        writter.writeWithFormatter();
-        processGrades(grades, writter, BINARY_FILE);
-        outputObject(reader, BINARY_FILE);
+//        processGrades(grades, writter, BINARY_FILE);
+//        outputObject(reader, BINARY_FILE);
+
+//        System.out.println(System.getProperty("user.dir"));
+
+        FileUtils utils  = new FileUtils();
+//        utils.printIOFileDetails("./");
+//        utils.printNioFileDetails(FILE_NAME);
+//        reader.readFileInFull(FILE_NAME);
+//        reader.nioReadFileWithBuffer(FILE_NAME);
+//        writter.nioWriteWithBuffer(BUFFERED_FILE);
+//        reader.nioReadWithStream(FILE_NAME);
+        writter.nioWriteWithStream(BUFFERED_FILE);
+
+//        System.out.println(Color.RED.getS());
+    }
+
+    enum Color{
+        RED("111"), BLUE("222"), GREEN("333");
+        private final String s;
+
+        Color(String s) {
+            this.s = s;
+        }
+        public String getS(){
+            return s;
+        }
     }
 
     private static void processGrades(SortedMap<AverageStudentGrade, Set<SubjectGrade>> grades,

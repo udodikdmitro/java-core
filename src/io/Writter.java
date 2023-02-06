@@ -4,9 +4,11 @@ import map.treeMap.AverageStudentGrade;
 import map.treeMap.SubjectGrade;
 
 import java.io.*;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.*;
 
 public class Writter {
@@ -53,6 +55,24 @@ public class Writter {
         } catch (IOException e) {
             System.out.println("File cannot be opened. Program terminates.");
             e.printStackTrace();
+        }
+    }
+
+    public void nioWriteWithBuffer(String fileName) throws IOException{
+        Path path = Paths.get(fileName);
+        Charset charset = Charset.forName("UTF-8");
+        try(BufferedWriter writer = Files.newBufferedWriter(path, charset)){
+            writer.write(fileName, 0, fileName.length());
+        }
+    }
+
+    public void nioWriteWithStream(String fileName) throws IOException {
+        Path path = Paths.get(fileName);
+        String str = "File cannot be opened. Program terminates.";
+        byte[] bytes = str.getBytes();
+        try(OutputStream stream = Files.newOutputStream(path,
+                StandardOpenOption.CREATE, StandardOpenOption.APPEND)){
+            stream.write(bytes, 0, bytes.length);
         }
     }
 
