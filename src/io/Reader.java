@@ -1,6 +1,8 @@
 package io;
 
 import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -71,6 +73,28 @@ public class Reader {
                 System.out.println(s);
 
             }
+        }
+    }
+
+    public void nioReadWithChannel(String fileName) throws IOException {
+//        FileInputStream file11 = new FileInputStream(fileName);
+//        file11.getChannel();//Channel for input.
+//        FileOutputStream file22 = new FileOutputStream(fileName);
+//        file22.getChannel();//Channel for output.
+
+        RandomAccessFile file = new RandomAccessFile(fileName, "rw");
+        FileChannel channel = file.getChannel();
+        //Channel for input and output.// This possibility determines by mode "rw".
+
+        ByteBuffer buffer = ByteBuffer.allocate(100);
+        int byteNumber = channel.read(buffer);
+        while (byteNumber > 0){
+            buffer.flip();
+            while (buffer.hasRemaining()){
+                System.out.print((char) buffer.get());
+            }
+            buffer.clear();
+            byteNumber = channel.read(buffer);
         }
     }
 }

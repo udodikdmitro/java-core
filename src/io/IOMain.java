@@ -17,7 +17,7 @@ public class IOMain {
         SortedMap<AverageStudentGrade, Set<SubjectGrade>> grades = TreeMapRunner.createGrades();
         Reader reader = new Reader();
         Writter writter = new Writter();
-        writter.writeFile(grades, FILE_NAME);
+//        writter.writeFile(grades, FILE_NAME);
 //        reader.readFile(FILE_NAME);
 //        writter.writeWithFormatter();
 //        processGrades(grades, writter, BINARY_FILE);
@@ -32,7 +32,8 @@ public class IOMain {
 //        reader.nioReadFileWithBuffer(FILE_NAME);
 //        writter.nioWriteWithBuffer(BUFFERED_FILE);
 //        reader.nioReadWithStream(FILE_NAME);
-        writter.nioWriteWithStream(BUFFERED_FILE);
+//        writter.nioWriteWithStream(BUFFERED_FILE);
+        reader.nioReadWithChannel(FILE_NAME);
 
 //        System.out.println(Color.RED.getS());
     }
