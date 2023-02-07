@@ -96,6 +96,7 @@ public class Reader {
             buffer.clear();
             byteNumber = channel.read(buffer);
         }
+        channel.close();
     }
 }
 

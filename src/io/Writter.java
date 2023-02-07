@@ -4,6 +4,8 @@ import map.treeMap.AverageStudentGrade;
 import map.treeMap.SubjectGrade;
 
 import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -73,6 +75,46 @@ public class Writter {
         try(OutputStream stream = Files.newOutputStream(path,
                 StandardOpenOption.CREATE, StandardOpenOption.APPEND)){
             stream.write(bytes, 0, bytes.length);
+        }
+    }
+
+    public void nioWriteWithChannel(String foleName) throws IOException {
+        String str = "I want to know java very well!!!";
+        RandomAccessFile file = new RandomAccessFile(foleName, "rw");
+        FileChannel channel = file.getChannel();
+
+//        ByteBuffer buffer = ByteBuffer.allocate(str.getBytes().length);
+//        This is a first way.
+
+        byte[] bytes = str.getBytes();
+        ByteBuffer buffer = ByteBuffer.wrap(bytes);
+        channel.write(buffer);
+        channel.close();
+    }
+
+    public void writeWithRandomAccess(String fileName) throws IOException {
+        ByteBuffer mark = ByteBuffer.wrap(" MARKED AREA ".getBytes());
+        ByteBuffer buffer = ByteBuffer.allocate(10);
+        Path path = Paths.get(fileName);
+
+        try(FileChannel openedFile = FileChannel.open(path, StandardOpenOption.READ, StandardOpenOption.WRITE)){
+            int numBytes = 0;
+            while (buffer.hasRemaining() && numBytes != -1){
+                numBytes = openedFile.read(buffer);
+            }
+            openedFile.position(0);
+            openedFile.write(mark);
+            long size = openedFile.size();
+            mark.rewind();
+            openedFile.position(size / 2);
+            openedFile.write(mark);
+            mark.rewind();
+            openedFile.position(size - 1);
+            openedFile.write(mark);
+            buffer.rewind();
+            long size1 = openedFile.size();
+            openedFile.position(size1 - 1);
+            openedFile.write(buffer);
         }
     }
 

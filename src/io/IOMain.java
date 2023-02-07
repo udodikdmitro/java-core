@@ -11,13 +11,13 @@ public class IOMain {
 
     public static final String FILE_NAME = "GradeBook.txt";
     public static final String BINARY_FILE = "Students.bin";
-    public static final String BUFFERED_FILE = "Buffered.txt";
+    public static final String BUFFERED_FILE = "Buffered.bin";
 
     public static void main(String[] args) throws IOException {
         SortedMap<AverageStudentGrade, Set<SubjectGrade>> grades = TreeMapRunner.createGrades();
         Reader reader = new Reader();
         Writter writter = new Writter();
-//        writter.writeFile(grades, FILE_NAME);
+        writter.writeFile(grades, FILE_NAME);
 //        reader.readFile(FILE_NAME);
 //        writter.writeWithFormatter();
 //        processGrades(grades, writter, BINARY_FILE);
@@ -33,7 +33,9 @@ public class IOMain {
 //        writter.nioWriteWithBuffer(BUFFERED_FILE);
 //        reader.nioReadWithStream(FILE_NAME);
 //        writter.nioWriteWithStream(BUFFERED_FILE);
-        reader.nioReadWithChannel(FILE_NAME);
+//        reader.nioReadWithChannel(FILE_NAME);
+//        writter.nioWriteWithChannel(BUFFERED_FILE);
+        writter.writeWithRandomAccess(FILE_NAME);
 
 //        System.out.println(Color.RED.getS());
     }
