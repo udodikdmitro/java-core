@@ -35,9 +35,9 @@ public class IOMain {
 //        writter.nioWriteWithStream(BUFFERED_FILE);
 //        reader.nioReadWithChannel(FILE_NAME);
 //        writter.nioWriteWithChannel(BUFFERED_FILE);
-        writter.writeWithRandomAccess(FILE_NAME);
-
+//        writter.writeWithRandomAccess(FILE_NAME);
 //        System.out.println(Color.RED.getS());
+        utils.processDir();
     }
 
     enum Color{
