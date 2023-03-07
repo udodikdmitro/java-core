@@ -34,4 +34,15 @@ public class User {
     public String getNationality() {
         return nationality;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", nationality='" + nationality + '\'' +
+                '}';
+    }
 }

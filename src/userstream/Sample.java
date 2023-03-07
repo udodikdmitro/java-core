@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Sample {
     private final List<User> userList = Arrays.asList(
@@ -26,6 +27,7 @@ public class Sample {
         System.out.println("Test 2");
         userList.stream()
                 .map(u -> {
+                    long a = u.getId();
                     return new User(
                             u.getId(),
                             "X " + u.getFirstName(),
@@ -33,7 +35,6 @@ public class Sample {
                             u.getAge() + 10,
                     u.getNationality());
                 })
-                .collect(Collectors.toList())
                 .forEach(System.out::println);
     }
 
@@ -41,7 +42,6 @@ public class Sample {
         System.out.println("Test 3");
         userList.stream()
                 .sorted(Comparator.comparing(User::getAge))
-                .collect(Collectors.toList())
                 .forEach(System.out::println);
     }
 
@@ -51,7 +51,15 @@ public class Sample {
                 .sorted(Comparator.comparing(User::getAge)
                         .thenComparing(User::getFirstName)
                         .thenComparing(User::getLastName))
-                .collect(Collectors.toList())
                 .forEach(System.out::println);
+    }
+
+    void test5(){
+        System.out.println("Test 5");
+        List<Long> list = userList.stream()
+                .filter(x -> x.getAge() > 11)
+                .map(User::getId)
+                .toList();
+        list.forEach(System.out::println);
     }
 }
