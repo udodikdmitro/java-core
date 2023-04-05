@@ -6,16 +6,38 @@ public class Employee {
     private String firstName;
     private String lastName;
     private int salary;
+    private String department;
 
-    public Employee(int id, String firstName, String lastName, int salary) {
+
+    public Employee(int id, String firstName, String lastName, int salary, String department) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.salary = salary;
+        this.department = department;
     }
 
     public int getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", salary=" + salary +
+                ", department='" + department + '\'' +
+                '}';
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
     public void setId(int id) {
@@ -46,13 +68,5 @@ public class Employee {
         this.salary = salary;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", salary=" + salary +
-                '}';
-    }
+
 }
