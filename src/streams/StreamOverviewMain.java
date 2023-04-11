@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -45,9 +46,24 @@ public class StreamOverviewMain {
 //        testSortAndReduce();
 //        partitionByIncome();
 //        groupByCriterion(Employee::getDepartment);
-//        testStreamGenerator(10);
+
+        Supplier<Integer> supplier = new Supplier<Integer>() {
+
+            private int previous = 0;
+            private int current = 1;
+
+            @Override
+            public Integer get() {
+                int next = previous + current;
+                previous = current;
+                current = next;
+                return current;
+            }
+        };
+
+        testStreamGenerator(10, supplier);
 //        testStreamIterator(10);
-        testParallelStream();
+//        testParallelStream();
     }
 
     private static void testParallelStream() throws IOException {
@@ -68,8 +84,8 @@ public class StreamOverviewMain {
         Stream.iterate(1, e -> e * 3).limit(limit).forEach(System.out::println);
     }
 
-    private static void testStreamGenerator(int limit){
-        Stream.generate(Math::random).limit(limit).forEach(System.out::println);
+    private static <T> void testStreamGenerator(int limit, Supplier<T> supplier){
+        Stream.generate(supplier).limit(limit).forEach(System.out::println);
     }
 
     private static <R> void groupByCriterion(Function<Employee, R> function){
