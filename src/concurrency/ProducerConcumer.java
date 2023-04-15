@@ -36,7 +36,8 @@ public class ProducerConcumer {
                     " by the higher level EJB abstractions, or using the annotations provided",
                     " by this API in combination with CDI managed beans.",
                     "Jakarta Messaging (JMS) provides a common way for Java programs to create,",
-                    " send, receive and read an enterprise messaging system's messages."
+                    " send, receive and read an enterprise messaging system's messages.",
+                    "DONE"
         };
 
         @Override
