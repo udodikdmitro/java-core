@@ -2,10 +2,8 @@ package lambdas;
 
 import lambdas.model.Circle;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
+import java.util.function.Predicate;
 
 @FunctionalInterface
 interface ElementProcessor<T extends Number>{
